@@ -264,7 +264,7 @@ $ku('h1').hapusNilaiAttr('class', 'judul');
 
 <html>
 
-	<h1 id={my_id}>{namaku}</h1>
+	<h1 class="pad-10px p-t-20px">{namaku}</h1>
 	<input type="text" oninput="input(this)" name="">
 
 </html>
@@ -278,7 +278,6 @@ $ku('h1').hapusNilaiAttr('class', 'judul');
 
 <script type="text/javascript">
 	let namaku = "budiman";
-	let my_id = "";
 	
 	function input(element){
 		contexts.namaku = element.value;
