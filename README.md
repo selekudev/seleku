@@ -140,7 +140,7 @@ $ku('h1').hapusNilaiAttr('class', 'judul');
 ## fitur seleku
 
 
-## Variabel Javacsript ke html
+### Variabel Javacsript ke html
 
 #### seleku juga memungkinkan untuk mengakses variabel di javascript secara langsung tanpa menggunakan DOM cukup dengan menambahkan `{variable}` di mana `variabel`
 #### adalah variabel javascript akses langsung
@@ -148,26 +148,23 @@ $ku('h1').hapusNilaiAttr('class', 'judul');
 
 ```HTML
 
-<!DOCTYPE html>
 <html>
-<head>
-	<title>selek</title>
-</head>
-<body>
-	
-	<h1>hello {name}</h1>
-	
-	<script src="seleku.js"></script>
-	<script src="global_function.js"></script>
-	<script src="joss.js"></script>
-	<script src="seleku-embbeded.js"></script>
-	<script>
 
-		let name = "seleku";
+	<h1>{namaku}</h1>	
 
-	</script>
-</body>
 </html>
+
+<style type="text/css">
+	h1{
+		color: red;
+		font-family: sans-serif;
+	}
+</style>
+
+<script type="text/javascript">
+	let namaku = "budiman";
+</script>
+
 
 ```
 
@@ -178,58 +175,51 @@ $ku('h1').hapusNilaiAttr('class', 'judul');
 
 ```HTML
 
-<!DOCTYPE html>
 <html>
-<head>
-	<title>selek</title>
-</head>
-<body>
-	
-	<h1>hello {name}</h1>
-	<input type="text" name="try" this-bind={name}>
-	
-	<script src="seleku.js"></script>
-	<script src="global_function.js"></script>
-	<script src="joss.js"></script>
-	<script src="seleku-embbeded.js"></script>
-	<script>
 
-		let name = "seleku";
+	<h1>{namaku}</h1>
+	<input type="text" this:bind={namaku} name="">
 
-	</script>
-</body>
 </html>
+
+<style type="text/css">
+	h1{
+		color: red;
+		font-family: sans-serif;
+	}
+</style>
+
+<script type="text/javascript">
+	let namaku = "budiman";
+</script>
+
 
 ```
 #### --Atau--
 
 ```HTML
 
-<!DOCTYPE html>
 <html>
-<head>
-	<title>selek</title>
-</head>
-<body>
-	
-	<h1>hello {name}</h1>
-	<input type="text" name="try" oninput="input(this)">
-	
-	<script src="seleku.js"></script>
-	<script src="global_function.js"></script>
-	<script src="joss.js"></script>
-	<script src="seleku-embbeded.js"></script>
-	<script>
 
-		let name = "seleku";
+	<h1>{namaku}</h1>
+	<input type="text" oninput="input(this)" name="">
 
-		function input(element){
-			contexts.name = element.value;
-		}
-
-	</script>
-</body>
 </html>
+
+<style type="text/css">
+	h1{
+		color: red;
+		font-family: sans-serif;
+	}
+</style>
+
+<script type="text/javascript">
+	let namaku = "budiman";
+	
+	function input(element){
+		contexts.namaku = element.value;
+	}
+</script>
 
 ```
 
@@ -240,31 +230,28 @@ $ku('h1').hapusNilaiAttr('class', 'judul');
 
 ```HTML
 
-<!DOCTYPE html>
 <html>
-<head>
-	<title>selek</title>
-</head>
-<body>
-	
-	<h1 style={myStyle}>{name}</h1>
-	<input type="text" name="try" oninput="changeColor(this)">
-	
-	<script src="seleku.js"></script>
-	<script src="global_function.js"></script>
-	<script src="joss.js"></script>
-	<script src="seleku-embbeded.js"></script>
-	<script>
 
-		let name = "seleku";
-		let myStyle = "";
+	<h1 id={my_id}>{namaku}</h1>
+	<input type="text" oninput="input(this)" name="">
 
-		let changeColor = (element)=>{
-			contexts.myStyle = element.value;
-		}
-
-	</script>
-</body>
 </html>
+
+<style type="text/css">
+	h1{
+		color: red;
+		font-family: sans-serif;
+	}
+</style>
+
+<script type="text/javascript">
+	let namaku = "budiman";
+	let my_id = "";
+	
+	function input(element){
+		contexts.namaku = element.value;
+		contexts.my_id = element.value;
+	}
+</script>
 
 ```
