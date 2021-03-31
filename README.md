@@ -29,7 +29,137 @@ $elek('p', 'semua'); // mengambil semua tag <p>
 $elek('p', 'awal'); // mengambil tag <p> pertama
 $elek('p', 'akhir'); // mengambil tag <p> terakhir
 ```
+## fitur seleku
 
+
+## Variabel Javacsript ke html
+
+#### seleku juga memungkinkan untuk mengakses variabel di javascript secara langsung tanpa menggunakan DOM cukup dengan menambahkan `{variable}` di mana `variabel`
+#### adalah variabel javascript akses langsung
+
+
+```HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>selek</title>
+</head>
+<body>
+	
+	<h1>hello {name}</h1>
+	
+	<script src="seleku.js"></script>
+	<script src="global_function.js"></script>
+	<script src="joss.js"></script>
+	<script src="seleku-embbeded.js"></script>
+	<script>
+
+		let name = "seleku";
+
+	</script>
+</body>
+</html>
+
+```
+
+## Mengikat dan Reaktivitas dalam `selek`
+#### selek juga memiliki binding dan reaktivitas, ingat hanya untuk tag ``` input ``` dan` textarea`, untuk menggunakannya cukup tambahkan atribut `this-bind = {variable}`
+#### Contoh
+
+
+```HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>selek</title>
+</head>
+<body>
+	
+	<h1>hello {name}</h1>
+	<input type="text" name="try" this-bind={name}>
+	
+	<script src="seleku.js"></script>
+	<script src="global_function.js"></script>
+	<script src="joss.js"></script>
+	<script src="seleku-embbeded.js"></script>
+	<script>
+
+		let name = "seleku";
+
+	</script>
+</body>
+</html>
+
+```
+#### --Atau--
+
+```HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>selek</title>
+</head>
+<body>
+	
+	<h1>hello {name}</h1>
+	<input type="text" name="try" oninput="input(this)">
+	
+	<script src="seleku.js"></script>
+	<script src="global_function.js"></script>
+	<script src="joss.js"></script>
+	<script src="seleku-embbeded.js"></script>
+	<script>
+
+		let name = "seleku";
+
+		function input(element){
+			contexts.name = element.value;
+		}
+
+	</script>
+</body>
+</html>
+
+```
+
+## dynamic attribute di `selek`
+#### dynamic attribute adalah attribute yang memiliki reaktivitas dan memungkinkan terjadinya perubahan attribute itu sendiri secara realtime
+#### Contoh
+
+
+```HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>selek</title>
+</head>
+<body>
+	
+	<h1 style={myStyle}>{name}</h1>
+	<input type="text" name="try" oninput="changeColor(this)">
+	
+	<script src="seleku.js"></script>
+	<script src="global_function.js"></script>
+	<script src="joss.js"></script>
+	<script src="seleku-embbeded.js"></script>
+	<script>
+
+		let name = "seleku";
+		let myStyle = "";
+
+		let changeColor = (element)=>{
+			contexts.myStyle = element.value;
+		}
+
+	</script>
+</body>
+</html>
+
+```
 **Memilih satu element html dan memanipulasinya :**
 
 ###### Memberi CSS (hanya satu properti)
