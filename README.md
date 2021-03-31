@@ -255,3 +255,69 @@ $ku('h1').hapusNilaiAttr('class', 'judul');
 </script>
 
 ```
+
+## css dynamic utility class 
+#### css dynamic utility clas adalah kumpulan class css yang dapat menyimpan nilai secara dynamic
+#### Contoh
+
+```HTML
+
+<html>
+
+	<h1 id={my_id}>{namaku}</h1>
+	<input type="text" oninput="input(this)" name="">
+
+</html>
+
+<style type="text/css">
+	h1{
+		color: red;
+		font-family: sans-serif;
+	}
+</style>
+
+<script type="text/javascript">
+	let namaku = "budiman";
+	let my_id = "";
+	
+	function input(element){
+		contexts.namaku = element.value;
+		contexts.my_id = element.value;
+	}
+</script>
+
+```
+
+#### untuk mengubah class utilities yang ada silahkan ubah di ```dist/joss.js``` 
+
+```JS
+let oneProps = {
+    "dbs-":{
+        "box-shadow": {
+            value: "0px 2px 5px rgba(0,0,0,$)",
+            type: ""
+        }
+    },
+    "c-": {
+        "color": {
+            value: null,
+            type: ""
+        }
+    },
+};
+
+let twoProps = {
+    "p-t-": {
+        "padding-top": {
+            value: null,
+            type: ""
+        },
+    },
+    "br-r-": {
+        "border-radius": {
+            value: null,
+            type: ""
+        },
+    },
+};
+```
