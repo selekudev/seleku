@@ -7,3 +7,5 @@ seleku bekerja dengan cara mengcompile file ```.seleku``` menjadi javascript den
 
 ### konsep seleku
 seleku mengubah seleku components ke dalam real web components sehingga memiliki performa native web components
+
+##memulai dengan seleku
